@@ -22,7 +22,7 @@ Die aktuelle Firmware gibt es unter **[Releases](../../releases/latest)**. Je Ve
 
 | Datei | Wofür |
 |---|---|
-| `SR-Display_<Version>_AMOLED143.bin` / `…_AMOLED175.bin` | **Update** über das Webinterface – Einstellungen, Kopplung, Kilometerstand und Fahrten bleiben erhalten |
+| `SR-Display_<Version>_AMOLED143.bin` / `…_AMOLED175.bin` | **Update** über das Webinterface – Einstellungen, Kopplung, Kilometerstand und Fahrten bleiben erhalten. Auch für den **Umstieg** von der alten Display-Software |
 | `SR-Display_<Version>_AMOLED143_komplett.bin` / `…_AMOLED175_komplett.bin` | **Erstinstallation per USB** auf ein neues Display – löscht alle Einstellungen |
 
 ## Update (Display läuft schon mit SR-Display-Firmware)
@@ -33,22 +33,48 @@ Die aktuelle Firmware gibt es unter **[Releases](../../releases/latest)**. Je Ve
 
 Eine Datei für die andere Platine wird abgelehnt – das Display läuft dann unverändert weiter.
 
+## Umstieg von der alten Display-Software
+
+Läuft auf dem Display noch die alte Software (Arduino-Version), genügt ein Update über deren Webinterface – ganz ohne Kabel:
+
+1. Passende Datei `SR-Display_<Version>_AMOLED1xx.bin` herunterladen (**nicht** die `_komplett.bin`).
+2. Im Webinterface der alten Software das Firmware-Update öffnen und die Datei hochladen.
+3. Das Display startet mit der neuen Software. Die alten Einstellungen werden nicht übernommen: Ist kein WLAN eingetragen, öffnet es den Hotspot **„SR HotSpot 192.168.4.1“** – weiter im [Benutzerhandbuch, Erste Inbetriebnahme](Benutzerhandbuch.md#erste-inbetriebnahme).
+
+Spätere Updates laufen dann wie oben beschrieben.
+
 ## Erstinstallation per USB (neues Display)
 
-Dafür braucht es einen PC mit Python und das Werkzeug **esptool**:
+Für ein neues Display oder wenn das Webinterface nicht erreichbar ist. Dabei werden **alle Einstellungen gelöscht**.
 
-```
-pip install esptool
-```
+### Mit dem Flash Download Tool (Windows, empfohlen)
+
+Das kostenlose [Flash Download Tool](https://www.espressif.com/en/support/download/other-tools) von Espressif herunterladen, entpacken und starten – eine Installation ist nicht nötig.
 
 1. Display per USB-C an den PC anschließen.
-2. Den COM-Port herausfinden (Windows: Geräte-Manager → Anschlüsse, z. B. `COM5`).
-3. Passende Datei `…_komplett.bin` aufspielen:
-   ```
-   esptool --chip esp32s3 --port COM5 write-flash 0x0 SR-Display_1.0.0_AMOLED143_komplett.bin
-   ```
-   Startet der Vorgang nicht: **BOOT**-Taste gedrückt halten, kurz **RESET** drücken, BOOT loslassen und erneut versuchen.
-4. Danach startet das Display mit dem Hotspot **„SR HotSpot 192.168.4.1“** – weiter im [Benutzerhandbuch, Erste Inbetriebnahme](Benutzerhandbuch.md#erste-inbetriebnahme).
+2. Im Startfenster wählen: **ChipType: ESP32-S3**, **WorkMode: Develop**, **LoadMode: USB** → OK.
+3. In der ersten Zeile der Dateiliste: Haken setzen, die passende `…_komplett.bin` auswählen, Adresse **0x0** eintragen. Alle anderen Zeilen leer lassen.
+4. Darunter einstellen:
+   - **SPI SPEED:** 80MHz
+   - **SPI MODE:** QIO
+   - **FLASH SIZE:** 128Mbit
+   - **DoNotChgBin:** ankreuzen (wichtig!)
+5. **COM:** den Anschluss des Displays wählen (Windows: Geräte-Manager → Anschlüsse), **BAUD:** 921600, dann **START**.
+6. Nach „FINISH“ das USB-Kabel kurz abziehen oder **RESET** drücken.
+
+Findet das Tool das Display nicht: **BOOT**-Taste gedrückt halten, kurz **RESET** drücken, BOOT loslassen und erneut **START**.
+
+### Mit esptool (Kommandozeile, alle Betriebssysteme)
+
+Braucht Python und das Werkzeug **esptool** (`pip install esptool`). Den Anschluss (z. B. `COM5`, unter Linux/macOS `/dev/ttyACM0`) anpassen:
+
+```
+esptool --chip esp32s3 --port COM5 write-flash 0x0 SR-Display_1.0.0_AMOLED143_komplett.bin
+```
+
+### Danach
+
+Das Display startet mit dem Hotspot **„SR HotSpot 192.168.4.1“** – weiter im [Benutzerhandbuch, Erste Inbetriebnahme](Benutzerhandbuch.md#erste-inbetriebnahme).
 
 ## Hinweise
 
