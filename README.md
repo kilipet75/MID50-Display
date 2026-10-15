@@ -1,4 +1,4 @@
-# SR-Display für SecondRide SR23/SR24 und MID50
+# MID50-Display für SecondRide SR23/SR24 und MID50
 
 Rundes Akku-, Tacho- und Diagnose-Display für Mopeds mit SecondRide-Elektroumbau.
 Eine Firmware für beide Antriebe: **SR23/SR24** (per Kabel oder Bluetooth über die SR-Bridge) und **MID50** (Bluetooth).
@@ -22,12 +22,12 @@ Die aktuelle Firmware gibt es unter **[Releases](../../releases/latest)**. Je Ve
 
 | Datei | Wofür |
 |---|---|
-| `SR-Display_<Version>_AMOLED143.bin` / `…_AMOLED175.bin` | **Update** über das Webinterface – Einstellungen, Kopplung, Kilometerstand und Fahrten bleiben erhalten. Auch für den **Umstieg** von der alten Display-Software |
-| `SR-Display_<Version>_AMOLED143_komplett.bin` / `…_AMOLED175_komplett.bin` | **Erstinstallation per USB** auf ein neues Display – löscht alle Einstellungen |
+| `MID50-Display_<Version>_AMOLED143.bin` / `…_AMOLED175.bin` | **Update** über das Webinterface – Einstellungen, Kopplung, Kilometerstand und Fahrten bleiben erhalten. Auch für den **Umstieg** von der alten Display-Software |
+| `MID50-Display_<Version>_AMOLED143_komplett.bin` / `…_AMOLED175_komplett.bin` | **Erstinstallation per USB** auf ein neues Display – löscht alle Einstellungen |
 
-## Update (Display läuft schon mit SR-Display-Firmware)
+## Update (Display läuft schon mit MID50-Display-Firmware)
 
-1. Passende Datei `SR-Display_<Version>_AMOLED1xx.bin` herunterladen.
+1. Passende Datei `MID50-Display_<Version>_AMOLED1xx.bin` herunterladen.
 2. Webinterface öffnen (`http://srdisplay/` im Heim-WLAN oder `http://192.168.4.1` über den Hotspot).
 3. **System → Firmware-Update**, Datei auswählen, **Hochladen & installieren**. Nach etwa einer halben Minute startet das Display neu.
 
@@ -37,7 +37,7 @@ Eine Datei für die andere Platine wird abgelehnt – das Display läuft dann un
 
 Läuft auf dem Display noch die alte Software (Arduino-Version), genügt ein Update über deren Webinterface – ganz ohne Kabel:
 
-1. Passende Datei `SR-Display_<Version>_AMOLED1xx.bin` herunterladen (**nicht** die `_komplett.bin`).
+1. Passende Datei `MID50-Display_<Version>_AMOLED1xx.bin` herunterladen (**nicht** die `_komplett.bin`).
 2. Im Webinterface der alten Software das Firmware-Update öffnen und die Datei hochladen.
 3. Das Display startet mit der neuen Software. Die alten Einstellungen werden nicht übernommen: Ist kein WLAN eingetragen, öffnet es den Hotspot **„SR HotSpot 192.168.4.1“** – weiter im [Benutzerhandbuch, Erste Inbetriebnahme](Benutzerhandbuch.md#erste-inbetriebnahme).
 
@@ -69,7 +69,7 @@ Findet das Tool das Display nicht: **BOOT**-Taste gedrückt halten, kurz **RESET
 Braucht Python und das Werkzeug **esptool** (`pip install esptool`). Den Anschluss (z. B. `COM5`, unter Linux/macOS `/dev/ttyACM0`) anpassen:
 
 ```
-esptool --chip esp32s3 --port COM5 write-flash 0x0 SR-Display_1.0.0_AMOLED143_komplett.bin
+esptool --chip esp32s3 --port COM5 write-flash 0x0 MID50-Display_1.0.0_AMOLED143_komplett.bin
 ```
 
 ### Danach

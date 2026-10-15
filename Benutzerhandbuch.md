@@ -1,4 +1,4 @@
-# SR-Display – Benutzerhandbuch
+# MID50-Display – Benutzerhandbuch
 
 Stand: Firmware 1.0.0, Oktober 2026. Download und Installation der Firmware: siehe [README](README.md).
 
@@ -9,7 +9,7 @@ Stand: Firmware 1.0.0, Oktober 2026. Download und Installation der Firmware: sie
 
 ## Überblick
 
-Das SR-Display ist eine runde Akku-, Tacho- und Diagnoseanzeige für Mopeds mit SecondRide-Elektroumbau. Es arbeitet mit beiden SecondRide-Antrieben:
+Das MID50-Display ist eine runde Akku-, Tacho- und Diagnoseanzeige für Mopeds mit SecondRide-Elektroumbau. Es arbeitet mit beiden SecondRide-Antrieben:
 
 - **SR23/SR24** mit dem Steuergerät „Günther“
 - **MID50** mit VESC-Motorcontroller
@@ -156,7 +156,7 @@ Mit einem gekoppelten iPhone steuerst du die Musik am Display, egal aus welcher 
 
 **Erstes Koppeln:** iOS zeigt das Display nicht unter Einstellungen → Bluetooth an. Deshalb einmalig die kostenlose App **nRF Connect** nutzen:
 
-1. Moped einschalten, am iPhone nRF Connect öffnen und nach „SR-Display“ suchen. Hinter dem Namen stehen vier Zeichen aus der Geräteadresse, etwa „SR-Display 5E9D“; so unterscheidest du mehrere Displays.
+1. Moped einschalten, am iPhone nRF Connect öffnen und nach „SR-Display“ suchen – so heißt das Display per Bluetooth. Hinter dem Namen stehen vier Zeichen aus der Geräteadresse, etwa „SR-Display 5E9D“; so unterscheidest du mehrere Displays.
 2. **Connect** tippen. Das iPhone fragt nach der Kopplung und zeigt einen Code. Das Display bestätigt ihn selbst; den Code zeigt es während der Kopplung auch auf dem Musik-Bildschirm.
 3. Am iPhone **Koppeln** tippen und nRF Connect schließen. Ab jetzt erscheint der Musik-Bildschirm beim Wischen.
 
