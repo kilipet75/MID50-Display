@@ -1,6 +1,6 @@
 # MID50-Display – Benutzerhandbuch
 
-Stand: Firmware 1.0.0, Oktober 2026. Download und Installation der Firmware: siehe [README](README.md).
+Stand: Firmware 1.0.1, Oktober 2026. Download und Installation der Firmware: siehe [README](README.md).
 
 **Inhalt:** [Überblick](#überblick) · [Anschluss](#anschluss-an-den-antrieb) · [Erste Inbetriebnahme](#erste-inbetriebnahme) ·
 [Bedienung am Display](#bedienung-am-display) · [Webinterface](#webinterface) · [Laden](#laden) ·

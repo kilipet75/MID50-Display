@@ -71,7 +71,7 @@ Findet das Tool das Display nicht: **BOOT**-Taste gedrückt halten, kurz **RESET
 Braucht Python und das Werkzeug **esptool** (`pip install esptool`). Den Anschluss (z. B. `COM5`, unter Linux/macOS `/dev/ttyACM0`) anpassen:
 
 ```
-esptool --chip esp32s3 --port COM5 write-flash 0x0 MID50-Display_1.0.0_AMOLED143_komplett.bin
+esptool --chip esp32s3 --port COM5 write-flash 0x0 MID50-Display_1.0.1_AMOLED143_komplett.bin
 ```
 
 ### Danach
@@ -106,7 +106,7 @@ Beim SR23/SR24 kann das Display seine Daten statt per Kabel auch per Bluetooth b
 5. **COM** wählen, **BAUD:** 921600, **START**.
 6. Nach „FINISH“ **RESET** drücken bzw. das Kabel abziehen. Ohne Antrieb leuchtet die LED rot.
 
-Oder per esptool: `esptool --chip esp32s3 --port COM5 write-flash 0x0 CDC-BLE-Bridge_1.0.0_ESP32-S3-SuperMini_komplett.bin`
+Oder per esptool: `esptool --chip esp32s3 --port COM5 write-flash 0x0 CDC-BLE-Bridge_1.0.1_ESP32-S3-SuperMini_komplett.bin`
 
 **In Betrieb nehmen**
 
