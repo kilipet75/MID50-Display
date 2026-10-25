@@ -1,6 +1,6 @@
 # MID50-Display – Benutzerhandbuch
 
-Stand: Firmware 1.0.1, Oktober 2026. Download und Installation der Firmware: siehe [README](README.md).
+Stand: Firmware 1.0.2, Oktober 2026. Download und Installation der Firmware: siehe [README](README.md).
 
 **Inhalt:** [Überblick](#überblick) · [Anschluss](#anschluss-an-den-antrieb) · [Erste Inbetriebnahme](#erste-inbetriebnahme) ·
 [Bedienung am Display](#bedienung-am-display) · [Webinterface](#webinterface) · [Laden](#laden) ·
@@ -178,7 +178,7 @@ Danach verbindet sich das iPhone bei jedem Einschalten von selbst, nRF Connect b
 | WLAN mit Haken | Mit einem WLAN verbunden |
 | Steckdose mit Haken | Smartplug erreichbar |
 | GO (grün) | Antrieb fahrbereit (MID50: Modus DRIVE) |
-| Bremse (orange) | Bremse betätigt (nur SR23/SR24) |
+| Bremse (orange) | Bremse betätigt (beim MID50 bleibt das Symbol nach dem Loslassen noch etwa 2 Sekunden an) |
 | Warndreieck (orange) | Leistung begrenzt (Ladestand, Temperatur oder Drosselung durch den MID50), oder Fehlercode |
 | Ausrufezeichen (rot) | Keine Daten vom Antrieb |
 | Bluetooth (blau) | Per Bluetooth gekoppelter Antrieb ist verbunden (MID50 oder SR-Bridge) |
@@ -274,7 +274,8 @@ Alle Einstellungen findest du im Webinterface unter **Einstellungen**; sie gelte
 | Einstellung | Wirkung | Standard |
 |---|---|---|
 | Geschwindigkeit trimmen (Faktor) | Gleicht anderen Radumfang oder andere Ritzel aus. 1,1 zeigt 10 % mehr an. Wirkt auch auf Kilometerzähler, Fahrten, Reichweite und Verbrauch je km. Erlaubt 0,5 bis 2,0. | 1,0 |
-| Verbrauch für Reichweite [Wh/km] | Nur MID50: Reichweite = Restenergie beider Akkus ÷ dieser Wert. Beispiel: 4000 Wh ÷ 37 Wh/km = 108 km. Beim SR23/SR24 kommt die Reichweite vom Antrieb | 25 |
+| Verbrauch für Reichweite [Wh/km] | Nur MID50: Reichweite = Ladestand × Kapazität je Akku × Anzahl der Akkus ÷ dieser Wert. Beispiel mit zwei Akkus bei 100 %: 4000 Wh ÷ 37 Wh/km = 108 km. Beim SR23/SR24 kommt die Reichweite vom Antrieb | 25 |
+| Kapazität je Akku [Wh] | Nur MID50: Kapazität eines Akkus. Wie viele Akkus eingesetzt sind (einer oder zwei), erkennt das Display selbst | 2000 |
 | CAN-ID Motorcontroller | Nur MID50, nur nach Anweisung ändern | 15 |
 | Startbildschirm | Akkuanzeige oder Tacho nach dem Einschalten | Akkuanzeige |
 | Anzeige drehen | Dreht den Bildschirminhalt in 90°-Schritten (0°, 90°, 180°, 270°), passend zur Einbaulage; die Touch-Bedienung dreht mit | 0° |
